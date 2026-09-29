@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "eu.agrogps/agro-gps",
+  "title": "Agro GPS",
+  "description": "Plant protection product registers of 30 countries, free; plus your farm notebook and finances",
+  "websiteUrl": "https://agrogps.eu",
+  "version": "0.2.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "agro-gps-mcp",
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "AGROGPS_API_KEY",
+          "description": "Agro GPS API key (agk_...) for your own farm data. Optional: the product register tools work without it",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "AGROGPS_TIMEOUT_MS",
+          "description": "Request timeout in milliseconds",
+          "isRequired": false,
+          "format": "number",
+          "default": "20000"
+        },
+        {
+          "name": "AGROGPS_API_URL",
+          "description": "API base URL",
+          "isRequired": false,
+          "format": "string",
+          "default": "https://api.agrogps.eu/api/v1"
+        }
+      ]
+    }
+  ]
+}

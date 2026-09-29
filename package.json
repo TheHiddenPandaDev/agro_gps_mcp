@@ -1,0 +1,58 @@
+{
+  "name": "agro-gps-mcp",
+  "version": "0.2.0",
+  "mcpName": "eu.agrogps/agro-gps",
+  "description": "MCP server for Agro GPS: free plant protection product registers of 30 European countries, plus your field notebook, farms, advisor queue and farm finances",
+  "author": "The Hidden Panda <support@agrogps.eu>",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "agro-gps-mcp": "./build/index.js"
+  },
+  "files": [
+    "build/**/*.js",
+    "build/**/*.d.ts",
+    "README.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node build/index.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/vitest run",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm test && npm run build",
+    "pages": "npm run build && node scripts/product-pages.mjs && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "agriculture",
+    "agritech",
+    "farm-management",
+    "field-notebook",
+    "cuaderno-de-campo",
+    "siex",
+    "pesticides",
+    "pesticide-register",
+    "plant-protection-products",
+    "plant-protection",
+    "farm-finance",
+    "agro-gps"
+  ],
+  "homepage": "https://agrogps.eu"
+}
